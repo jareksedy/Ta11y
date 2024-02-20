@@ -17,14 +17,14 @@ struct CountersView: View {
             List {
                 ForEach(counters) { counter in
                     NavigationLink {
-                        Text("Item at \(counter.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        Text("Item at \(counter.created, format: Date.FormatStyle(date: .numeric, time: .standard))")
                     } label: {
-                        Text(counter.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        Text(counter.created, format: Date.FormatStyle(date: .numeric, time: .standard))
                     }
                 }
                 .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Ta11y Counter")
+            .navigationTitle("Ta11y")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem {
@@ -40,8 +40,8 @@ struct CountersView: View {
 
     private func addItem() {
         withAnimation {
-            let newItem = Counter(timestamp: Date())
-            modelContext.insert(newItem)
+            let counter = Counter()
+            modelContext.insert(counter)
         }
     }
 

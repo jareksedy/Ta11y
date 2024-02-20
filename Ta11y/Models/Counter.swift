@@ -19,13 +19,13 @@ final class Counter {
     var resetEveryDay: Bool = true
     
     init(
-        created: Date,
-        lastUpdated: Date,
-        title: String,
-        subtitle: String,
-        value: Int,
-        negativeValues: Bool,
-        resetEveryDay: Bool
+        created: Date = Date(),
+        lastUpdated: Date = Date(),
+        title: String = "",
+        subtitle: String = "",
+        value: Int = 0,
+        negativeValues: Bool = true,
+        resetEveryDay: Bool = true
     ) {
         self.created = created
         self.lastUpdated = lastUpdated
