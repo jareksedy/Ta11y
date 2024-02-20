@@ -10,9 +10,29 @@ import SwiftData
 
 @Model
 final class Counter {
-    var timestamp: Date = Date()
+    var created: Date = Date()
+    var lastUpdated: Date = Date()
+    var title: String = ""
+    var subtitle: String = ""
+    var value: Int = 0
+    var negativeValues: Bool = true
+    var resetEveryDay: Bool = true
     
-    init(timestamp: Date) {
-        self.timestamp = timestamp
+    init(
+        created: Date,
+        lastUpdated: Date,
+        title: String,
+        subtitle: String,
+        value: Int,
+        negativeValues: Bool,
+        resetEveryDay: Bool
+    ) {
+        self.created = created
+        self.lastUpdated = lastUpdated
+        self.title = title
+        self.subtitle = subtitle
+        self.value = value
+        self.negativeValues = negativeValues
+        self.resetEveryDay = resetEveryDay
     }
 }
