@@ -12,10 +12,9 @@ import SwiftData
 struct Ta11yApp: App {
     var sharedModelContainer: ModelContainer = {
         let schema = Schema([
-            Item.self,
+            Counter.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
@@ -25,7 +24,7 @@ struct Ta11yApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CountersView()
         }
         .modelContainer(sharedModelContainer)
     }

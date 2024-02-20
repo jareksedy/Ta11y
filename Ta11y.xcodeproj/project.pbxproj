@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		CAEA99602B84D18000F9D364 /* Ta11yApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA995F2B84D18000F9D364 /* Ta11yApp.swift */; };
-		CAEA99622B84D18000F9D364 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA99612B84D18000F9D364 /* ContentView.swift */; };
-		CAEA99642B84D18000F9D364 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA99632B84D18000F9D364 /* Item.swift */; };
+		CAEA99622B84D18000F9D364 /* CountersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA99612B84D18000F9D364 /* CountersView.swift */; };
+		CAEA99642B84D18000F9D364 /* Counter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAEA99632B84D18000F9D364 /* Counter.swift */; };
 		CAEA99662B84D18200F9D364 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAEA99652B84D18200F9D364 /* Assets.xcassets */; };
 		CAEA99692B84D18200F9D364 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CAEA99682B84D18200F9D364 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -17,8 +17,8 @@
 /* Begin PBXFileReference section */
 		CAEA995C2B84D18000F9D364 /* Ta11y.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ta11y.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAEA995F2B84D18000F9D364 /* Ta11yApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ta11yApp.swift; sourceTree = "<group>"; };
-		CAEA99612B84D18000F9D364 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		CAEA99632B84D18000F9D364 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		CAEA99612B84D18000F9D364 /* CountersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountersView.swift; sourceTree = "<group>"; };
+		CAEA99632B84D18000F9D364 /* Counter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Counter.swift; sourceTree = "<group>"; };
 		CAEA99652B84D18200F9D364 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CAEA99682B84D18200F9D364 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		CAEA996A2B84D18200F9D364 /* Ta11y.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Ta11y.entitlements; sourceTree = "<group>"; };
@@ -55,9 +55,9 @@
 		CAEA995E2B84D18000F9D364 /* Ta11y */ = {
 			isa = PBXGroup;
 			children = (
+				CAEA99712B84D76200F9D364 /* Models */,
+				CAEA99722B84D7C900F9D364 /* Views */,
 				CAEA995F2B84D18000F9D364 /* Ta11yApp.swift */,
-				CAEA99612B84D18000F9D364 /* ContentView.swift */,
-				CAEA99632B84D18000F9D364 /* Item.swift */,
 				CAEA99652B84D18200F9D364 /* Assets.xcassets */,
 				CAEA996A2B84D18200F9D364 /* Ta11y.entitlements */,
 				CAEA996B2B84D18200F9D364 /* Info.plist */,
@@ -72,6 +72,22 @@
 				CAEA99682B84D18200F9D364 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		CAEA99712B84D76200F9D364 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CAEA99632B84D18000F9D364 /* Counter.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		CAEA99722B84D7C900F9D364 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CAEA99612B84D18000F9D364 /* CountersView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -144,8 +160,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAEA99622B84D18000F9D364 /* ContentView.swift in Sources */,
-				CAEA99642B84D18000F9D364 /* Item.swift in Sources */,
+				CAEA99622B84D18000F9D364 /* CountersView.swift in Sources */,
+				CAEA99642B84D18000F9D364 /* Counter.swift in Sources */,
 				CAEA99602B84D18000F9D364 /* Ta11yApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
