@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftData
+import SwiftUI
 
 @Model
 final class Counter {
@@ -15,6 +16,7 @@ final class Counter {
     var title: String = ""
     var value: Int = 0
     var shouldResetDaily: Bool = true
+    var backgroundColor: Color
     
     init(
         createdAt: Date = Date(),
@@ -23,12 +25,15 @@ final class Counter {
         subtitle: String? = nil,
         value: Int = 0,
         allowNegativeValues: Bool = true,
-        shouldResetDaily: Bool = true
+        shouldResetDaily: Bool = true,
+        backgroundColor: Color = .accentColor
+        
     ) {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.title = title
         self.value = value
         self.shouldResetDaily = shouldResetDaily
+        self.backgroundColor = backgroundColor
     }
 }
