@@ -5,7 +5,6 @@
 //  Created by Ярослав on 20.02.2024.
 //
 
-import Foundation
 import SwiftData
 import SwiftUI
 
@@ -16,7 +15,6 @@ final class Counter {
     var title: String = ""
     var value: Int = 0
     var shouldResetDaily: Bool = true
-    var backgroundColor: Color
     
     init(
         createdAt: Date = Date(),
@@ -25,8 +23,7 @@ final class Counter {
         subtitle: String? = nil,
         value: Int = 0,
         allowNegativeValues: Bool = true,
-        shouldResetDaily: Bool = true,
-        backgroundColor: Color = .accentColor
+        shouldResetDaily: Bool = true
         
     ) {
         self.createdAt = createdAt
@@ -34,6 +31,5 @@ final class Counter {
         self.title = title
         self.value = value
         self.shouldResetDaily = shouldResetDaily
-        self.backgroundColor = backgroundColor
     }
 }
