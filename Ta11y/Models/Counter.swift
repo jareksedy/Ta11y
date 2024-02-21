@@ -13,9 +13,7 @@ final class Counter {
     var createdAt: Date = Date()
     var updatedAt: Date = Date()
     var title: String = ""
-    var subtitle: String? = nil
     var value: Int = 0
-    var allowNegativeValues: Bool = true
     var shouldResetDaily: Bool = true
     
     init(
@@ -30,9 +28,7 @@ final class Counter {
         self.createdAt = createdAt
         self.updatedAt = updatedAt
         self.title = title
-        self.subtitle = subtitle
         self.value = value
-        self.allowNegativeValues = allowNegativeValues
         self.shouldResetDaily = shouldResetDaily
     }
 }
