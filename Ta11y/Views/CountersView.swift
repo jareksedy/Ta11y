@@ -17,9 +17,9 @@ struct CountersView: View {
             List {
                 ForEach(counters) { counter in
                     NavigationLink {
-                        Text("Item at \(counter.created, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        Text("Item at \(counter.createdAt, format: Date.FormatStyle(date: .numeric, time: .standard))")
                     } label: {
-                        Text(counter.created, format: Date.FormatStyle(date: .numeric, time: .standard))
+                        Text(counter.createdAt, format: Date.FormatStyle(date: .numeric, time: .standard))
                     }
                 }
                 .onDelete(perform: deleteItems)

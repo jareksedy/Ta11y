@@ -10,29 +10,29 @@ import SwiftData
 
 @Model
 final class Counter {
-    var created: Date = Date()
-    var lastUpdated: Date = Date()
+    var createdAt: Date = Date()
+    var updatedAt: Date = Date()
     var title: String = ""
-    var subtitle: String = ""
+    var subtitle: String? = nil
     var value: Int = 0
-    var negativeValues: Bool = true
-    var resetEveryDay: Bool = true
+    var allowNegativeValues: Bool = true
+    var shouldResetDaily: Bool = true
     
     init(
-        created: Date = Date(),
-        lastUpdated: Date = Date(),
+        createdAt: Date = Date(),
+        updatedAt: Date = Date(),
         title: String = "",
-        subtitle: String = "",
+        subtitle: String? = nil,
         value: Int = 0,
-        negativeValues: Bool = true,
-        resetEveryDay: Bool = true
+        allowNegativeValues: Bool = true,
+        shouldResetDaily: Bool = true
     ) {
-        self.created = created
-        self.lastUpdated = lastUpdated
+        self.createdAt = createdAt
+        self.updatedAt = updatedAt
         self.title = title
         self.subtitle = subtitle
         self.value = value
-        self.negativeValues = negativeValues
-        self.resetEveryDay = resetEveryDay
+        self.allowNegativeValues = allowNegativeValues
+        self.shouldResetDaily = shouldResetDaily
     }
 }
