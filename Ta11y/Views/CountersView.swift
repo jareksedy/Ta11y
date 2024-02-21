@@ -30,6 +30,8 @@ struct CountersView: View {
                 ForEach(counters) { counter in
                     VStack {
                         Text("\(counter.value)")
+                            .id(counter.value)
+                            .transition(.push(from: .bottom))
                             .font(.system(size: 124, weight: .bold, design: .rounded))
                             .monospacedDigit()
                             .foregroundStyle(.white)
