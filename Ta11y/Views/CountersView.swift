@@ -11,40 +11,89 @@ import SwiftData
 struct CountersView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var counters: [Counter]
-
+    
+    init() {
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 18, weight: .bold).rounded(),
+            NSAttributedString.Key.foregroundColor: UIColor.label
+        ]
+        
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            NSAttributedString.Key.font: UIFont.systemFont(ofSize: 36, weight: .bold).rounded(),
+            NSAttributedString.Key.foregroundColor: UIColor.label
+        ]
+    }
+    
     var body: some View {
-        NavigationSplitView {
-            List {
+        NavigationStack {
+            TabView {
                 ForEach(counters) { counter in
-                    NavigationLink {
-                        Text("Item at \(counter.createdAt, format: Date.FormatStyle(date: .numeric, time: .standard))")
-                    } label: {
-                        Text(counter.createdAt, format: Date.FormatStyle(date: .numeric, time: .standard))
+                    VStack {
+                        Text("\(counter.value)")
+                            .font(.system(size: 124, weight: .bold, design: .rounded))
+                            .monospacedDigit()
+                            .foregroundStyle(.white)
+                        
+                        HStack {
+                            Button(action: {
+                                counter.value += 1
+                                counter.updatedAt = Date()
+                            },
+                                   label: {
+                                Image(systemName: "plus.circle")
+                                    .font(.system(size: 48, weight: .regular, design: .rounded))
+                                    .foregroundColor(.white)
+                            })
+                            
+                            Button(action: {
+                                guard counter.value > 0 else { return }
+                                counter.value -= 1
+                                counter.updatedAt = Date()
+                            },
+                                   label: {
+                                Image(systemName: "minus.circle")
+                                    .font(.system(size: 48, weight: .regular, design: .rounded))
+                                    .foregroundColor(.white)
+                            })
+
+                        }
+                        
                     }
+                    .padding()
+                    .background(.accent)
+                    .cornerRadius(12)
                 }
-                .onDelete(perform: deleteItems)
             }
-            .navigationTitle("Ta11y")
-            .navigationBarTitleDisplayMode(.inline)
+            .tabViewStyle(.page)
+            .indexViewStyle(.page(backgroundDisplayMode: .always))
+//            .navigationTitle("ta11y app")
+//            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                ToolbarItem(placement: .topBarLeading) {
+                    Button(action: {}) {
+                        Image(systemName: "slider.horizontal.2.square")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
                     }
+                    .padding(.leading, 10)
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Button(action: addItem) {
+                        Image(systemName: "plus.app")
+                            .font(.system(size: 18, weight: .bold, design: .rounded))
+                    }
+                    .padding(.trailing, 10)
                 }
             }
-        } detail: {
-            Text("Select an item")
         }
     }
-
+    
     private func addItem() {
         withAnimation {
             let counter = Counter()
             modelContext.insert(counter)
         }
     }
-
+    
     private func deleteItems(offsets: IndexSet) {
         withAnimation {
             for index in offsets {
@@ -57,4 +106,14 @@ struct CountersView: View {
 #Preview {
     CountersView()
         .modelContainer(for: Counter.self, inMemory: true)
+}
+
+extension UIFont {
+    func rounded() -> UIFont {
+        guard let descriptor = fontDescriptor.withDesign(.rounded) else {
+            return self
+        }
+        
+        return UIFont(descriptor: descriptor, size: pointSize)
+    }
 }
